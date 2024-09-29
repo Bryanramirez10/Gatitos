@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Azu Linda</title>
+    <style>
+        /* Estilos generales del cuerpo */
+        body {
+            color: azure;
+            width: 100%;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(135deg, #fbc2eb, #a6c1ee); /* Degradado pastel */
+            font-family: 'Raleway', sans-serif;
+            margin: 0;
+            position: relative; /* Para posicionar el botón en relación al body */
+            overflow: hidden; /* Para evitar que el botón se desplace fuera del área visible */
+        }
+
+        /* Estilo de las letras de la descripción */
+        .greetings {
+            font-size: 5rem;
+            font-weight: 600;
+            text-align: center; /* Centramos el texto */
+        }
+
+        /* Botón y su enlace con estilo */
+        .botones {
+            padding: 9px;
+            border-radius: 80px;
+            background-color: transparent;
+            border: none;
+            position: absolute; /* Para mover el botón */
+            left: 50%; /* Centramos horizontalmente */
+            transform: translateX(-50%); /* Ajustamos para centrar */
+            top: 70%; /* Espacio desde la parte superior */
+            transition: left 0.5s, top 0.5s; /* Transiciones suaves para el movimiento */
+        }
+
+        .botones a {
+            background-color: #0a2be9;
+            padding: 15px 30px;
+            border-radius: 80px;
+            color: #fff; /* Color del texto */
+            text-decoration: none;
+            font-size: 1.2rem;
+            font-weight: bold;
+        }
+
+        .botones a:focus {
+            background-color: rgb(50, 194, 194);
+        }
+
+        /* Nueva animación de las letras */
+        .greetings > span {
+            animation: zoom 3s ease-in-out infinite;
+        }
+
+        @keyframes zoom {
+            0%, 100% {
+                transform: scale(1);
+            }
+            50% {
+                transform: scale(1.2);
+            }
+        }
+
+        .description {
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+            text-align: center; /* Centramos el texto */
+        }
+
+    </style>
+</head>
+
+<body>
+
+    <div class="greetings">
+        <span>E</span>
+        <span>s</span>
+        <span>t</span>
+        <span>a</span>
+        <span>s</span>
+        <span>&nbsp;</span> <!-- Espacio en blanco -->
+        <span>M</span>
+        <span>u</span>
+        <span>y</span>
+        <span>&nbsp;</span> <!-- Espacio en blanco -->
+        <span>L</span>
+        <span>i</span>
+        <span>n</span>
+        <span>d</span>
+        <span>a</span>
+        <span>&nbsp;</span> <!-- Espacio en blanco -->
+        <span>A</span>
+        <span>m</span>
+        <span>o</span>
+        <span>r</span>
+    </div>
+
+    <div class="description">
+        <span>Hola mi amor, paso a recordarte lo linda que estás</span>
+    </div>
+
+    <div class="button">
+        <button class="botones" id="boton">
+            <a href="#">CLICK AQUÍ MI AMOR😍</a>
+        </button>
+    </div>
+
+    <script>
+        let clickCount = 0;
+
+        document.getElementById('boton').addEventListener('click', function () {
+            clickCount++;
+
+            if (clickCount < 3) {
+                // Mueve el botón a una nueva posición
+                let x = Math.floor(Math.random() * (window.innerWidth - 150));
+                let y = Math.floor(Math.random() * (window.innerHeight - 100));
+                this.style.left = x + 'px';
+                this.style.top = y + 'px';
+            } else {
+                // Después del tercer clic, redirige a la "pantalla de broma"
+                window.location.href = "joke.html";
+            }
+        });
+    </script>
+
+</body>
+
+</html>
